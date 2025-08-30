@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import { MovieTheme } from "../components/MovieTheme";
 import SearchInput from "../components/SearchInput";
+import Message from "../components/Message";
 
 export default function Dashboard() {
     const [platformMovies, setPlatformMovies] = useState<Array<Partial<Movie>>>([]);
@@ -23,6 +24,9 @@ export default function Dashboard() {
 
         <div className="grid grid-col grid-cols-3 gap-x-1 gap-y-3">
             {platformMovies.map((movie) => <MovieCard movie={movie}/>)}
+        </div>
+        <div className="mt-5">
+            <Message/>
         </div>
     </div>
 
