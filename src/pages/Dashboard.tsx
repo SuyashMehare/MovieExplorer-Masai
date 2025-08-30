@@ -76,9 +76,11 @@ export default function Dashboard() {
 
             movies = res.data.results;
             theme = 'popular'
+            console.log(crntMovieTheme);
+            
         }
 
         setPlatformMovies(movies)
-        
+        setCrntMovieTheme(theme)
     }
 }
