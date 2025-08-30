@@ -10,7 +10,7 @@ export default function SearchInput({setMovies, fetchMovie}:SearchInputProp) {
         }
 
         const res = await axios(SEARCH_MOVIE_URL + '?query='+value, {
-            headers: {Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN}
+            headers: {Authorization: 'Bearer ' + import.meta.env.VITE_APP_BEARER_TOKEN}
         });
         setMovies(res.data.results);
     }

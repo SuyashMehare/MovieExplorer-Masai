@@ -6,9 +6,9 @@ function App() {
 
 
   useEffect(() => {
-    fetch('https://api.themoviedb.org/3/account/'+import.meta.env.APP_ACCOUNT_ID, {
+    fetch('https://api.themoviedb.org/3/account/'+import.meta.env.VITE_APP_ACCOUNT_ID, {
       headers: {
-        'Authorization': "Bearer "+ import.meta.env.APP_BEARER_TOKEN
+        'Authorization': "Bearer "+ import.meta.env.VITE_APP_BEARER_TOKEN
       }
     })
     .then((res) => res.json())
