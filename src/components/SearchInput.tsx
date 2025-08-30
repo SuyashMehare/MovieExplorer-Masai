@@ -1,6 +1,5 @@
 import axios from "axios"
 import { SEARCH_MOVIE_URL } from "../constants"
-import { EnvImport } from "../utility/envImports";
 import type { SearchInputProp } from "../types";
 
 export default function SearchInput({setMovies, fetchMovie}:SearchInputProp) {
@@ -11,7 +10,7 @@ export default function SearchInput({setMovies, fetchMovie}:SearchInputProp) {
         }
 
         const res = await axios(SEARCH_MOVIE_URL + '?query='+value, {
-            headers: {Authorization: 'Bearer ' + EnvImport("ACCESSTOKEN")}
+            headers: {Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN}
         });
         setMovies(res.data.results);
     }

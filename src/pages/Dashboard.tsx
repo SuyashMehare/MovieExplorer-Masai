@@ -1,7 +1,6 @@
 import axios from "axios";
 import { NOW_PLAYING_URL, POPULAR_URL, TOP_RATED_URL, UPCOMING_URL } from "../constants";
 import type { Movie } from "../types";
-import { EnvImport } from "../utility/envImports";
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import { MovieTheme } from "../components/MovieTheme";
@@ -36,7 +35,7 @@ export default function Dashboard() {
             const res = await axios
             .get(NOW_PLAYING_URL + '?language=en-US&page='+ page, {
                 headers: {
-                    Authorization: 'Bearer ' + EnvImport("ACCESSTOKEN")
+                    Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                 }
             });
 
@@ -47,7 +46,7 @@ export default function Dashboard() {
             const res = await axios
             .get(POPULAR_URL + '?language=en-US&page='+ page, {
                 headers: {
-                    Authorization: 'Bearer ' + EnvImport("ACCESSTOKEN")
+                    Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                 }
             });
 
@@ -59,7 +58,7 @@ export default function Dashboard() {
             const res = await axios
                 .get(TOP_RATED_URL + '?language=en-US&page=' + page, {
                     headers: {
-                        Authorization: 'Bearer ' + EnvImport("ACCESSTOKEN")
+                        Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                     }
                 });
 
@@ -70,15 +69,17 @@ export default function Dashboard() {
             const res = await axios
                 .get(UPCOMING_URL + '?language=en-US&page=' + page, {
                     headers: {
-                        Authorization: 'Bearer ' + EnvImport("ACCESSTOKEN")
+                        Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                     }
                 });
 
             movies = res.data.results;
             theme = 'popular'
+            console.log(crntMovieTheme);
+            
         }
 
         setPlatformMovies(movies)
-        
+        setCrntMovieTheme(theme)
     }
 }
