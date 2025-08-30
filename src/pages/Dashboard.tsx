@@ -39,7 +39,7 @@ export default function Dashboard() {
             const res = await axios
             .get(NOW_PLAYING_URL + '?language=en-US&page='+ page, {
                 headers: {
-                    Authorization: 'Bearer ' + import.meta.env.VITE_APP_BEARER_TOKEN
+                    Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                 }
             });
 
@@ -50,7 +50,7 @@ export default function Dashboard() {
             const res = await axios
             .get(POPULAR_URL + '?language=en-US&page='+ page, {
                 headers: {
-                    Authorization: 'Bearer ' + import.meta.env.VITE_APP_BEARER_TOKEN
+                    Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                 }
             });
 
@@ -62,7 +62,7 @@ export default function Dashboard() {
             const res = await axios
                 .get(TOP_RATED_URL + '?language=en-US&page=' + page, {
                     headers: {
-                        Authorization: 'Bearer ' + import.meta.env.VITE_APP_BEARER_TOKEN
+                        Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                     }
                 });
 
@@ -73,7 +73,7 @@ export default function Dashboard() {
             const res = await axios
                 .get(UPCOMING_URL + '?language=en-US&page=' + page, {
                     headers: {
-                        Authorization: 'Bearer ' + import.meta.env.VITE_APP_BEARER_TOKEN
+                        Authorization: 'Bearer ' + import.meta.env.APP_BEARER_TOKEN
                     }
                 });
 
